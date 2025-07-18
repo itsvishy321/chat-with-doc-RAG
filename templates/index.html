@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document Chat Application</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Document Chat Application</h1>
+        <p>Chat with any documentation or article using AI</p>
+      </header>
+
+      <div class="sessions-section">
+        <div class="sessions-header">
+          <h2>Previous Sessions</h2>
+          <div class="sessions-controls">
+            <button id="loadSessionsBtn">Refresh</button>
+          </div>
+        </div>
+        <div id="sessionsList" class="sessions-list"></div>
+      </div>
+
+      <div class="url-section">
+        <div class="input-group">
+          <input
+            type="url"
+            id="urlInput"
+            placeholder="Enter documentation URL..."
+          />
+          <button id="processBtn">Process URL</button>
+        </div>
+        <div id="status" class="status"></div>
+      </div>
+
+      <div id="chatSection" class="chat-section" style="display: none">
+        <div class="document-info">
+          <strong>URL:</strong> <span id="documentUrl"></span>
+        </div>
+
+        <div id="chatHistory" class="chat-history"></div>
+
+        <div class="input-group">
+          <input
+            type="text"
+            id="questionInput"
+            placeholder="Ask a question about the document..."
+          />
+          <button id="askBtn">Ask</button>
+        </div>
+      </div>
+
+      <div id="loading" class="loading" style="display: none">
+        <div class="spinner"></div>
+        <span>Processing...</span>
+      </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+  </body>
+</html>
